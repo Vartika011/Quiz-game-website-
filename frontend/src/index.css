@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 222 47% 11%;        /* main navy */
+    --foreground: 210 40% 98%;        /* white text */
+
+    --card: 222 40% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand */
+    --primary: 217 91% 60%;           /* blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted text (IMPORTANT FIX) */
+    --muted: 222 25% 20%;
+    --muted-foreground: 215 30% 80%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders / inputs */
+    --border: 222 30% 25%;
+    --input: 222 30% 25%;
+    --ring: 217 91% 60%;
+
+    /* Charts */
+    --chart-1: 217 91% 60%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 230 80% 65%;
+    --chart-4: 190 90% 45%;
+    --chart-5: 210 85% 55%;
+
+    --radius: 0.5rem;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+.card,
+.result-card,
+.stats-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: hsl(var(--foreground));
+}
+
+p, span, small, label, div {
+  color: hsl(var(--foreground));
+}
+
+/* muted text should still be readable */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+
+button {
+  color: hsl(var(--primary-foreground));
+  opacity: 1;
+}
+
+/* Hover only for non-ghost variants */
+button:not([data-variant="ghost"]):hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+button:disabled {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--muted-foreground));
+  opacity: 1;
+}
+
+/* icon inside buttons */
+button svg {
+  color: currentColor;
+  stroke: currentColor;
+}
+
+.option,
+[role="option"],
+[role="button"] {
+  background-color: hsl(var(--card));
+  color: hsl(var(--foreground));
+}
+
+.option:hover,
+[role="option"]:hover,
+[role="button"]:hover {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+}
+
+.progress,
+.percentage,
+.timer,
+.score,
+.correct,
+.incorrect,
+.remaining {
+  color: hsl(var(--foreground));
+  font-weight: 500;
+}
+
+.bg-white {
+  background-color: #ffffff !important;
+  color: #0f172a !important; /* slate-900 */
+}
+
+.bg-white * {
+  color: #0f172a !important;
+}
+
+
+.performance-insights,
+.insights-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--foreground));
+}
+
+.performance-insights *,
+.insights-card * {
+  color: hsl(var(--foreground));
+  opacity: 1;
+}
+
+/* Headings */
+.performance-insights h2,
+.performance-insights h3 {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+/* Strengths & Improvements text */
+.performance-insights li,
+.performance-insights p {
+  color: hsl(var(--muted-foreground));
+}
+
+.performance-insights svg {
+  opacity: 1;
+}
+
+
+.show-review-btn,
+button.show-review-btn {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+  opacity: 1;
+}
+
+.show-review-btn:disabled {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--muted-foreground));
+  opacity: 1;
+}
+
+
+.quiz-subtitle,
+.quiz-title-small {
+  color: hsl(var(--muted-foreground));
+  opacity: 1;
+}
+
+
+button,
+a {
+  color: white !important;
+}
+
+button svg,
+a svg {
+  color: white !important;
+}
+
+button {
+  background-color: transparent;
+}
+
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+
+main,
+.App {
+  position: relative;
+  z-index: 1;
+}
